@@ -15,6 +15,7 @@ import { createRequest } from './api';
 import { DataProps } from './types/data';
 import * as leaflet from 'leaflet';
 import DefaultMarker from './components/DefaultMarker';
+import NovosibirskRegionBorder from './components/Region';
 // import { SetStateAction, useState } from 'react';
 const App = () => {
   const center = [55.0380614307295, 82.97708847157797] as LatLngExpression;
@@ -225,6 +226,7 @@ const App = () => {
         </Marker> */}
         <DefaultMarker center={center} />
         {/* <LocationMarker /> */}
+        <NovosibirskRegionBorder/>
         <SetBoundsRectangles />
       </MapContainer>
     </div>
