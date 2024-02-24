@@ -14,6 +14,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { createRequest } from './api';
 import { DataProps } from './types/data';
 import * as leaflet from 'leaflet';
+import DefaultMarker from './components/DefaultMarker';
 // import { SetStateAction, useState } from 'react';
 const App = () => {
   const center = [55.0380614307295, 82.97708847157797] as LatLngExpression;
@@ -102,7 +103,7 @@ const App = () => {
             innerBounds[0][1],
             innerBounds[1][0],
             innerBounds[1][1],
-          ) && <Marker icon={icon} position={coords as LatLngExpression} />}
+          ) && <DefaultMarker center={coords as LatLngExpression} />}
         <Rectangle
           bounds={innerBounds as LatLngBoundsExpression}
           eventHandlers={innerHandlers}
@@ -117,18 +118,18 @@ const App = () => {
   // start test change color marker
 
   //  Create the Icon
-  const LeafIcon = leaflet.Icon.extend({
-    options: {},
-  });
+  // const LeafIcon = leaflet.Icon.extend({
+  //   options: {},
+  // });
 
-  const blueIcon: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon = new LeafIcon({
-      iconUrl: '../public/red-marker.svg',
-      iconSize: [32, 32], // Размер иконки
-    }),
-    greenIcon = new LeafIcon({
-      iconSize: [32, 32], // Размер иконки
-      iconUrl: '../public/green-marker.svg',
-    });
+  // const blueIcon: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon = new LeafIcon({
+  //     iconUrl: '../public/red-marker.svg',
+  //     iconSize: [32, 32], // Размер иконки
+  //   }),
+  //   greenIcon = new LeafIcon({
+  //     iconSize: [32, 32], // Размер иконки
+  //     iconUrl: '../public/green-marker.svg',
+  //   });
   // let myCustomColor = '#583470';
 
   // const markerHtmlStylesGreen = `
@@ -163,19 +164,17 @@ const App = () => {
   // });
 
   //  Use the state hook:
-  const [icon, setIcon] = useState<leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon>(blueIcon);
+  // const [icon, setIcon] = useState<leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon>(blueIcon);
 
   // This function will change the state's icon:
 
-  const changeIconColor = (icon: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon) => {
-    if (icon.options.iconUrl === greenIcon.options.iconUrl) {
-      setIcon((i: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon) => (i = blueIcon));
-    } else {
-      setIcon(
-        (current: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon) => (current = greenIcon),
-      );
-    }
-  };
+  // const changeIconColor = (icon: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon) => {
+  //   if (icon.options.iconUrl === greenIcon.options.iconUrl) {
+  //     setIcon(blueIcon);
+  //   } else {
+  //     setIcon(greenIcon);
+  //   }
+  // };
 
   // setTimeout(() => {
   //   icon.options.html = `<span style="${markerHtmlStylesRed}" />`;
@@ -218,12 +217,13 @@ const App = () => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={center} icon={icon}>
+        {/* <Marker position={center} icon={icon}>
           <Popup>
             <button onClick={() => changeIconColor(icon)}>Change Marker Color</button>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
-        </Marker>
+        </Marker> */}
+        <DefaultMarker center={center} />
         {/* <LocationMarker /> */}
         <SetBoundsRectangles />
       </MapContainer>
