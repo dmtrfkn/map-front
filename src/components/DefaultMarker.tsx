@@ -7,19 +7,19 @@ interface defaultMarkerProps {
 }
 
 const DefaultMarker: FC<defaultMarkerProps> = ({ center }) => {
-  const LeafIcon = leaflet.Icon.extend({
-    options: {},
-  });
+  // const LeafIcon = leaflet.Icon.extend({
+  //   options: {},
+  // });
 
   // Задание двух иконок (ошибка типов еще не пофиксили, но функционал рабочий)
-  const blueIcon: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon = new LeafIcon({
-      iconUrl: '../assets/red-marker.svg',
-      iconSize: [32, 32], // Размер иконки
-    }),
-    greenIcon = new LeafIcon({
-      iconSize: [32, 32], // Размер иконки
-      iconUrl: '../assets/green-marker.svg',
-    });
+  const blueIcon = new leaflet.Icon({
+    iconUrl: '../assets/red-marker.svg',
+    iconSize: [32, 32], // Размер иконки
+  });
+  const greenIcon = new leaflet.Icon({
+    iconSize: [32, 32], // Размер иконки
+    iconUrl: '../assets/green-marker.svg',
+  });
 
   const [icon, setIcon] = useState<leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon>(blueIcon);
 
