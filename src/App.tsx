@@ -6,7 +6,6 @@ import { LatLngExpression } from 'leaflet';
 import { useState } from 'react';
 import RegionCreator from './components/RegionCreator';
 import 'leaflet/dist/leaflet.css';
-import { City } from '../types/city';
 
 const App = () => {
   const center = [55.0380614307295, 82.97708847157797] as LatLngExpression;
