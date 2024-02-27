@@ -1,0 +1,19 @@
+.leaflet-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+a[href="https://leafletjs.com/"]
+{
+  display: none;
+}
+
+.button {
+  position: absolute;
+  z-index: 500;
+
+  top: 10px;
+  left: 50px;
+  width: 100px;
+  height: 65px;
+}
