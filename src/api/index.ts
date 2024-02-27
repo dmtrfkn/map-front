@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DataProps } from '../types/data';
+import { DataProps } from '../../types/data';
 
 export const createRequest = async () => {
   try {
