@@ -13,12 +13,12 @@ const DefaultMarker: FC<defaultMarkerProps> = ({ center }) => {
 
   // Задание двух иконок (ошибка типов еще не пофиксили, но функционал рабочий)
   const blueIcon: leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon = new LeafIcon({
-      iconUrl: '../public/red-marker.svg',
+      iconUrl: '../assets/red-marker.svg',
       iconSize: [32, 32], // Размер иконки
     }),
     greenIcon = new LeafIcon({
       iconSize: [32, 32], // Размер иконки
-      iconUrl: '../public/green-marker.svg',
+      iconUrl: '../assets/green-marker.svg',
     });
 
   const [icon, setIcon] = useState<leaflet.Icon<leaflet.IconOptions> | leaflet.DivIcon>(blueIcon);
