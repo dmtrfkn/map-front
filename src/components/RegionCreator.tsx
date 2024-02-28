@@ -56,6 +56,7 @@ const RegionCreator: FC<RegionCreatorProps> = ({
         setCurrentRegion(region);
         map.fitBounds(coords as LatLngBoundsExpression);
         map.getZoom();
+        // map.zoomIn(100);
       },
     }),
     [map],
