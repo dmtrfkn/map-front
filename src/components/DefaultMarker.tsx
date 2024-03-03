@@ -1,8 +1,7 @@
 import { FC, useState } from 'react';
 import * as leaflet from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
-
-type State = 'online' | 'offline' | 'disable';
+import { State } from '../../types/camera';
 
 interface defaultMarkerProps {
   center: leaflet.LatLngExpression;
