@@ -47,6 +47,7 @@ const RegionCreator: FC<RegionCreatorProps> = ({
   const poins = [
     [55.03464916508405, 82.97315397256799],
     [55.03533095406177, 82.96875143854301],
+    [55.03711823520168, 82.97520415139363],
   ];
 
   // Установка текущего региона выделенным, зумм
@@ -81,7 +82,7 @@ const RegionCreator: FC<RegionCreatorProps> = ({
             coords[Math.round(coords.length / 2)][0], // координата x середины зоны
             coords[0][1], // координата y начала зоны
             coords[Math.round(coords.length / 2)][1], // координата y середины зоны
-          ) && <DefaultMarker center={[point[0], point[1]] as LatLngExpression} />,
+          ) && <DefaultMarker center={[point[0], point[1]] as LatLngExpression} state="online" />,
       )}
     </div>
   );
