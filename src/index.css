@@ -8,7 +8,6 @@
   height: 100vh;
 }
 
-// скрываем иконку библиотеки, потому что мешает
 a[href="https://leafletjs.com"]
 {
   display: none;
