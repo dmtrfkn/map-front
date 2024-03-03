@@ -30,7 +30,17 @@ const App = () => {
   // };
   return (
     <div>
-      <MapContainer key="map" center={center} zoom={10} scrollWheelZoom={true} zoomControl={true}>
+      <MapContainer
+        key="map"
+        minZoom={10}
+        maxBounds={[
+          [55.34680418080934, 82.64418239421884],
+          [54.63198917914636, 83.3743184766522],
+        ]}
+        center={center}
+        zoom={10}
+        scrollWheelZoom={true}
+        zoomControl={true}>
         {/* <button onClick={() => LocationMarker()} className={styles.button}>
           вернуться к началу
           {/* <LocationMarker /> */}
@@ -47,6 +57,13 @@ const App = () => {
             />
           )),
         )}
+        {/* чтобы посмотреть зону ограничения карты
+        /* <Polygon
+          positions={[
+            [55.34680418080934, 82.64418239421884],
+            [54.63198917914636, 83.3743184766522],
+          ]}
+        /> */}
       </MapContainer>
     </div>
   );
